@@ -12,7 +12,7 @@ I'm using elipse debugger to run the **manual** test:
 3. start wildfly in debug mode
 4. deploy the webapp
 5. put a condition breakpoint on `com.sun.faces.facelets.impl.DefaultFaceletCache:225` - condition: `url.toString().endsWith("/comp.xhtml")`
-6. with a browser go to: http://localhost:8080/JAVASERVERFACES-4178/ (the breakpoint should not be triggered): the page shows 100 dummy lines
+6. with a browser go to: `http://localhost:8080/JAVASERVERFACES-4178` (the breakpoint should not be triggered): the page shows 100 dummy lines
 7. immediately refresh the page
 8. proceed ("Resume" around 4-10 times) with debugger until page fully loads
 9. immediately refresh the page (again)
