@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:cc="http://xmlns.jcp.org/jsf/composite" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" xmlns:z="http://java.sun.com/jsf/composite/cc">
+
+<cc:interface>
+    <cc:attribute name="value" />
+</cc:interface>
+
+<cc:implementation>
+    <div id="#{cc.clientId}">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="test component ttt" />
+            <h:outputText value="#{cc.attrs.value}" />
+        </h:panelGrid>
+    </div>
+</cc:implementation>
+
+</html>
