@@ -11,23 +11,23 @@ I'm using elipse debugger to run the **manual** test:
 2. download/clone this repo and import the project in eclipse
 3. start wildfly in debug mode
 4. deploy the webapp
-5. put a condition breakpoint on `com.sun.faces.facelets.impl.DefaultFaceletCache:225` - condition: `url.toString().endsWith("/comp.xhtml")`
-6. with a browser go to: `http://localhost:8080/JAVASERVERFACES-4178` (the breakpoint should not be triggered): the page shows 100 dummy lines
-7. immediately refresh the page
-8. proceed ("Resume" around 4-10 times) with debugger until page fully loads
-9. immediately refresh the page (again)
-10. proceed ("Resume" around 4-10 times) with debugger until page fully loads (again)
-11. go take a coffe (wait some minute)
-12. refresh the page (again)
-13. proceed ("Resume" many many times) with debugger until page fully loads (again)
+5. with a browser go to: `http://localhost:8080/JAVASERVERFACES-4178`
+6. clear log
+7. refresh the page: around 4-10 lines like: `---------------------------------> opening connection!! ...` 
+8. clear log
+9. refresh the page (again): around 4-10 lines like: `---------------------------------> opening connection!! ...` 
+10. go take a coffe (wait some minute)
+11. refresh the page (again): around 200 lines like: `---------------------------------> opening connection!! ...`
 
 this is a proof that:
 
-* `Util.getLastModified(url)` is called many times in a single request (it's a time consuming op)
+* `Util.getLastModified(url)` is called **unnecessarily** many times in a row (it's a time consuming op)
 * incrementing the threshold is conceptually wrong and leads to this kind of effect
 
 Note that this is a simple page with 100 composite component instance of the same type.
 In an average high-level management app, the size could easily be around 5000.
 
 
+I added a custom facelet cache implementation.
 
+To enable it, just uncomment the line from `faces-config.xml` 

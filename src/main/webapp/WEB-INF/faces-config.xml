@@ -3,4 +3,8 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
 
+    <factory>
+<!--         <facelet-cache-factory>it.shape.core.jsf.context.cache.ShapeFaceletCacheFactory</facelet-cache-factory> -->
+    </factory>
+
 </faces-config>
